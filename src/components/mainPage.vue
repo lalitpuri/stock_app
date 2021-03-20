@@ -1,12 +1,12 @@
 <template>
   <div class="mainPage">
-  <h1>Stocks</h1>
+  <h1>Stocks {{ stock_name }}</h1>
 
     <div class="row" v-if="loaded">
    
 
-    <div class="col-md-5 ml-5">
-      <b-table id="mytable" sticky-header hover :items="stocks" :fields="fields" primary-key="_id" @row-clicked="handleRowClick">
+    <div class="col-md-5 ml-10">
+      <b-table id="mytable" sticky-header fix hover :items="stocks" :fields="fields" primary-key="_id" @row-clicked="handleRowClick" :per-page="10">
         <template #cell(updated_at)="data">
          <timeago :datetime="data.item.updated_at"></timeago>
       </template>
@@ -35,6 +35,7 @@ export default {
     return {
       url: 'http://localhost:4000',
       switchValue:'',
+      stock_name:'',
       stocks:[],
       fields:[],
       loaded:'',
@@ -90,6 +91,7 @@ export default {
       .catch(err => console.log(err));
     },
     handleRowClick(record){
+      this.stock_name = record.name;
       axios.get(this.url + '/stocks/' + record._id + '?type=' + this.switchValue)
       .then(res => {
         console.log('data received :' , res.data)
