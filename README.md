@@ -15,7 +15,9 @@ vue
 ```
 
 [mongodb installation guide](https://docs.mongodb.com/manual/installation/)
+
 [node installation](https://nodejs.org/en/download/)
+
 [vue-cli installation guide](https://cli.vuejs.org/guide/installation.html)
 
 Sample database provided in this repository under `dump` folder.After you installed above CLI tools, migrate database on your local mongodb using below command:
