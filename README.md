@@ -45,7 +45,7 @@ start your frontend app using below command
 ```
 npm run serve
 ```
-You should get output something like this :
+You should get output something like this : http://localhost:4001/ 
 [click here to see output](https://imgur.com/rHQ4ktO)
 
 ## Final Output
